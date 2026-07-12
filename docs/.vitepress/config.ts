@@ -1,28 +1,19 @@
 import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
-// GitHub Pages project site: https://user.github.io/ИМЯ_РЕПО/
-// GITHUB_REPOSITORY и BASE_URL задаются автоматически в Actions
-function resolveBase(): string {
-  if (process.env.BASE_URL) return process.env.BASE_URL
-  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1]
-  if (repo) return `/${repo}/`
-  return '/'
-}
-
-const base = resolveBase()
-
 export default defineConfig({
   lang: 'ru-RU',
   title: 'HytaleNet Launcher',
   description: 'Документация по HLauncher — лаунчеру для Hytale',
-  base,
-  cleanUrls: true,
-  // lastUpdated требует git в PATH — включите после `git init` и установки Git
-  // lastUpdated: true,
+  
+  // Для кастомного домена docs.hlauncher.com нужен строго корень
+  base: '/',
+  
+  // Отключаем красивые URL, чтобы GitHub Pages гарантированно находил ассеты
+  cleanUrls: false,
 
   head: [
-    ['link', { rel: 'icon', href: `${base}favicon.ico` }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', rel: 'stylesheet' }],
