@@ -1,7 +1,16 @@
 import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
-const base = '/docs-hlauncher/' 
+// GitHub Pages project site: https://user.github.io/ИМЯ_РЕПО/
+// GITHUB_REPOSITORY и BASE_URL задаются автоматически в Actions
+function resolveBase(): string {
+  if (process.env.BASE_URL) return process.env.BASE_URL
+  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1]
+  if (repo) return `/${repo}/`
+  return '/'
+}
+
+const base = resolveBase()
 
 export default defineConfig({
   lang: 'ru-RU',
