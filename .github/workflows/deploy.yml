@@ -27,6 +27,10 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Verify VitePress config
+        run: |
+          test -f docs/.vitepress/config.ts || (echo "Missing docs/.vitepress/config.ts!" && exit 1)
+
       - name: Install dependencies
         run: npm install
 
@@ -34,6 +38,7 @@ jobs:
         run: npm run docs:build
         env:
           BASE_URL: /${{ github.event.repository.name }}/
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

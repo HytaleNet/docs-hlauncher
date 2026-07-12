@@ -1,0 +1,157 @@
+/* HLauncher — спокойная голубо-синяя тема */
+
+:root {
+  --vp-font-family-base: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --vp-c-brand-1: #0071B5;
+  --vp-c-brand-2: #0157A1;
+  --vp-c-brand-3: #BDE8FA;
+  --vp-c-brand-soft: rgba(0, 113, 181, 0.08);
+
+  --vp-c-bg: #f8fafb;
+  --vp-c-bg-soft: #f1f5f8;
+  --vp-c-bg-mute: #e8eef2;
+  --vp-c-divider: rgba(0, 113, 181, 0.08);
+}
+
+.dark {
+  --vp-c-brand-1: #4a9fd4;
+  --vp-c-brand-2: #0071B5;
+  --vp-c-brand-3: #1e3a5f;
+  --vp-c-brand-soft: rgba(74, 159, 212, 0.1);
+
+  --vp-c-bg: #141820;
+  --vp-c-bg-soft: #1a2030;
+  --vp-c-bg-mute: #222a3a;
+  --vp-c-divider: rgba(255, 255, 255, 0.06);
+}
+
+/* Навбар и сайдбар — лёгкий акцент, без blur */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+.VPSidebarItem .item.active .text {
+  color: var(--vp-c-brand-1);
+}
+
+/* Hero — без градиентов и свечения */
+.VPHero .name {
+  color: var(--vp-c-brand-1);
+  font-size: 3rem !important;
+}
+
+.VPHero .image-container img {
+  filter: none;
+}
+
+.VPHero .image-bg {
+  opacity: 0.4;
+}
+
+/* Кнопки — плоские */
+.VPButton.brand {
+  background: var(--vp-c-brand-1) !important;
+}
+
+.VPButton.brand:hover {
+  background: var(--vp-c-brand-2) !important;
+}
+
+/* Feature-карточки — тонкая рамка, без hover-анимаций */
+.VPFeature {
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 10px !important;
+  background: var(--vp-c-bg-soft) !important;
+}
+
+.VPFeature .title {
+  font-weight: 600;
+}
+
+/* Custom blocks — чуть мягче фон */
+.custom-block {
+  border-radius: 8px !important;
+}
+
+.custom-block.tip {
+  background: var(--vp-c-brand-soft) !important;
+  border-color: rgba(0, 113, 181, 0.15) !important;
+}
+
+/* Таблицы */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc th {
+  background: var(--vp-c-bg-mute);
+}
+
+/* Код */
+div[class*='language-'] {
+  border-radius: 8px !important;
+  border: 1px solid var(--vp-c-divider) !important;
+}
+
+/* Шаги инструкций */
+.vp-doc .vp-steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.vp-doc .vp-steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.25rem;
+  list-style: none;
+}
+
+.vp-doc .vp-steps > li::marker {
+  content: '';
+}
+
+.vp-doc .vp-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vp-doc .vp-steps > li > strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Светлая/тёмная версии изображений */
+.img-light { display: block; }
+.img-dark { display: none; }
+.dark .img-light { display: none; }
+.dark .img-dark { display: block; }
+
+/* Tabs */
+.plugin-tabs--tab-list,
+.plugin-tabs--content {
+  border-color: var(--vp-c-divider);
+  border-radius: 8px;
+}
