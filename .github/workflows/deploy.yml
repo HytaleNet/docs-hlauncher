@@ -34,11 +34,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run docs:build
+      - name: Build with VitePress
+        run: npm run docs:build # или yarn docs:build
         env:
-          BASE_URL: /${{ github.event.repository.name }}/
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          BASE_URL: /docs-hlauncher/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
